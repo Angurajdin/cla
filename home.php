@@ -2,6 +2,7 @@
 
 require_once "db/db_connect.php";
 $lang = $_GET['lang'];
+$val=$_GET['val'];
 ?>
 
 
@@ -62,7 +63,7 @@ $lang = $_GET['lang'];
         <!--/Navbar links-->
       </nav>
       <!--Navbar -->
-      <br><br><br>
+      <br><br>
 
     <div class="container">
         <div class="p-5 rounded mt-3" id="toppage" style="background-color: #E4F1FB;">
@@ -114,32 +115,9 @@ $lang = $_GET['lang'];
                     <?php } ?>
                     </datalist>
                     &emsp;
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="search()" name="sea" class="btn btn-primary">Search</button>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="search()" class="btn btn-primary">Search</button>
                     
-                    
-                    <!-- Modal -->
-                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                        <p id="question">
-                        </p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Understood</button>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-
-
                     <br><br>
-
 
                     <?php if($lang == 'c_lang') { ?>
                     <a href="learn/learn.php?id=1&lang=cpp_lang">
@@ -236,12 +214,9 @@ function search(){
     
     a = document.getElementById('exampleDataList').value;
     b = '<?php echo "$lang"; ?>';
-    sessionStorage.setItem("qu", a);
-    document.getElementById('question').innerHTML = sessionStorage.getItem("qu") ; 
+    window.location.href="modal.php?lang="+b+"&val="+a;
 }
-
 </script>
-
 
 <!-- Footer -->
 <footer class="page-footer pt-0 mt-5">
