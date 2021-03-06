@@ -49,12 +49,12 @@ $val=$_GET['val'];
 </script>
 
     <!-- Button trigger modal -->
-<button id="angu" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+<button style="display:none;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
   Launch static backdrop modal
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -68,10 +68,22 @@ $val=$_GET['val'];
         
         <?php 
             $qry = mysqli_query($connect,"SELECT * FROM " .$lang. " WHERE indextopic LIKE '%" . $val ."%'");
+            
+            $r = mysqli_num_rows($qry);
+
+            if($r>0){
             while($res = mysqli_fetch_array($qry)){
             ?>    
             <a href="learn/learn.php?id=<?php echo $res[0]; ?>&lang=<?php echo $lang; ?>" class="list-group-item list-group-item-action"><?php echo $res[1]; ?></a>
-        <?php }  ?>
+        <?php }  
+            }
+
+        else{
+            echo "<center>No result</center><br>";
+        }
+        
+        
+        ?>
       </div>
       <div class="modal-footer">
         <a href="home.php?lang=<?php echo $lang; ?>">

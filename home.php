@@ -63,7 +63,7 @@ $val=$_GET['val'];
         <!--/Navbar links-->
       </nav>
       <!--Navbar -->
-      <br><br>
+      <br>
 
     <div class="container">
         <div class="p-5 rounded mt-3" id="toppage" style="background-color: #E4F1FB;">
