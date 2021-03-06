@@ -132,7 +132,7 @@ $val=$_GET['val'];
                         <button type="button" class="btn btn-primary btn-rounded">Start Learning Cpp &nbsp;&nbsp;
                             <i class="fas fa-arrow-right"></i>
                         </button> &emsp; 
-                        <a href="https://www.jdoodle.com/api/redirect-to-post/online-compiler-c++14/" class="btn btn-primary btn-rounded" style="background-color:#03338F;">Online C++ Complier</button>
+                        <a href="https://www.jdoodle.com/api/redirect-to-post/online-compiler-c++14/" class="btn btn-primary btn-rounded" style="background-color:#03338F;">Online Cpp Complier</button>
                     </a>
                     <?php }  
                     elseif($lang == 'java_lang') { ?>
