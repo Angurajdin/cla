@@ -33,11 +33,13 @@ $lang = $_GET['lang'];
 
   <!-- Your custom styles (optional) -->
   <style>
-
+    .bg {
+      background-color: ;
+    }
   </style>
 </head>
 
-<body>
+<body class="bg">
 
 
     <!-- Navbar -->
@@ -143,31 +145,36 @@ $lang = $_GET['lang'];
                     <a href="learn/learn.php?id=1&lang=cpp_lang">
                         <button type="button" class="btn btn-primary btn-rounded" style="background-color:#03338F;">Start Learning C &nbsp;&nbsp;
                             <i class="fas fa-arrow-right"></i>
-                        </button>
+                        </button> &emsp;
+                        <a href="https://www.jdoodle.com/api/redirect-to-post/c-online-compiler" class="btn btn-primary btn-rounded" style="background-color:#03338F;">Online C Complier</button>
                     </a>
                     <?php }  
                     elseif($lang == 'cpp_lang') { ?>
                     <a href="learn/learn.php?id=1&lang=cpp_lang">
                         <button type="button" class="btn btn-primary btn-rounded">Start Learning Cpp &nbsp;&nbsp;
                             <i class="fas fa-arrow-right"></i>
-                        </button>                        
+                        </button> &emsp; 
+                        <a href="https://www.jdoodle.com/api/redirect-to-post/online-compiler-c++14/" class="btn btn-primary btn-rounded" style="background-color:#03338F;">Online C++ Complier</button>
                     </a>
                     <?php }  
                     elseif($lang == 'java_lang') { ?>
                     <a href="learn/learn.php?id=1&lang=java_lang">
                         <button type="button" class="btn btn-primary btn-rounded" style="background-color:#03338F;">Start Learning Java &nbsp;&nbsp;
                             <i class="fas fa-arrow-right"></i>
-                        </button>
+                        </button>  &emsp; 
+                        <a href="https://www.jdoodle.com/api/redirect-to-post/online-java-compiler/" class="btn btn-primary btn-rounded" style="background-color:#03338F;">Online Java Complier</button>
                     </a>
                     <?php }  
                     else{ ?>
                     <a href="learn/learn.php?id=1&lang=python_lang">
                         <button type="button" class="btn btn-primary btn-rounded" style="background-color:#03338F;">Start Learning Python &nbsp;&nbsp;
                             <i class="fas fa-arrow-right"></i>
-                        </button>
+                        </button>   &emsp;
+                        <a href="https://www.jdoodle.com/api/redirect-to-post/python3-programming-online/" class="btn btn-primary btn-rounded" style="background-color:#03338F;">Online python Complier</button>
                     </a>
                     <?php } ?>
                 </div>
+                
             </div>
         </div>
 
