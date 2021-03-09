@@ -34,13 +34,11 @@ $val=$_GET['val'];
 
   <!-- Your custom styles (optional) -->
   <style>
-    .bg {
-      background-color: ;
-    }
+    
   </style>
 </head>
 
-<body class="bg">
+<body>
 
 
     <!-- Navbar -->
@@ -52,6 +50,7 @@ $val=$_GET['val'];
   
         <!--Navbar links-->
         <ul class="nav navbar-nav nav-flex-icons ml-auto">
+
           <li class="nav-item">
             <a class="nav-link waves-effect"><i class="fas fa-envelope"></i> <span class="clearfix d-none d-sm-inline-block">Contact</span></a>
           </li>
@@ -124,7 +123,7 @@ $val=$_GET['val'];
                         <button type="button" class="btn btn-primary btn-rounded" style="background-color:#03338F;">Start Learning C &nbsp;&nbsp;
                             <i class="fas fa-arrow-right"></i>
                         </button> &emsp;
-                        <a href="https://www.jdoodle.com/api/redirect-to-post/c-online-compiler" class="btn btn-primary btn-rounded" style="background-color:#03338F;">Online C Complier</button>
+                        <a href="comp.php?lang=c_lang" class="btn btn-primary btn-rounded" style="background-color:#03338F;">Online C Complier</button>
                     </a>
                     <?php }  
                     elseif($lang == 'cpp_lang') { ?>
@@ -132,7 +131,7 @@ $val=$_GET['val'];
                         <button type="button" class="btn btn-primary btn-rounded">Start Learning Cpp &nbsp;&nbsp;
                             <i class="fas fa-arrow-right"></i>
                         </button> &emsp; 
-                        <a href="https://www.jdoodle.com/api/redirect-to-post/online-compiler-c++14/" class="btn btn-primary btn-rounded" style="background-color:#03338F;">Online Cpp Complier</button>
+                        <a href="comp.php?lang=cpp_lang" class="btn btn-primary btn-rounded" style="background-color:#03338F;">Online Cpp Complier</button>
                     </a>
                     <?php }  
                     elseif($lang == 'java_lang') { ?>
@@ -140,7 +139,7 @@ $val=$_GET['val'];
                         <button type="button" class="btn btn-primary btn-rounded" style="background-color:#03338F;">Start Learning Java &nbsp;&nbsp;
                             <i class="fas fa-arrow-right"></i>
                         </button>  &emsp; 
-                        <a href="https://www.jdoodle.com/api/redirect-to-post/online-java-compiler/" class="btn btn-primary btn-rounded" style="background-color:#03338F;">Online Java Complier</button>
+                        <a href="comp.php?lang=java_lang" class="btn btn-primary btn-rounded" style="background-color:#03338F;">Online Java Complier</button>
                     </a>
                     <?php }  
                     else{ ?>
@@ -148,7 +147,7 @@ $val=$_GET['val'];
                         <button type="button" class="btn btn-primary btn-rounded" style="background-color:#03338F;">Start Learning Python &nbsp;&nbsp;
                             <i class="fas fa-arrow-right"></i>
                         </button>   &emsp;
-                        <a href="https://www.jdoodle.com/api/redirect-to-post/python3-programming-online/" class="btn btn-primary btn-rounded" style="background-color:#03338F;">Online python Complier</button>
+                        <a href="comp.php?lang=python_lang" class="btn btn-primary btn-rounded" style="background-color:#03338F;">Online python Complier</button>
                     </a>
                     <?php } ?>
                 </div>

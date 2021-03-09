@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2021 at 05:27 AM
+-- Generation Time: Mar 06, 2021 at 06:00 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.13
 
@@ -70,31 +70,14 @@ INSERT INTO `cpp_lang` (`id`, `indextopic`, `content`, `syntax`, `syntaxdef`, `s
 INSERT INTO `cpp_lang` (`id`, `indextopic`, `content`, `syntax`, `syntaxdef`, `syntax2`, `syntaxdef2`, `example`, `exampledef`, `example2`, `exampledef2`, `searchword`, `keyword`, `diagram1`, `diagram2`, `diagram3`) VALUES
 (17, 'Functions in C++', '<p>Functions are used to provide modularity to a program. Creating an application using function makes it easier to understand, edit, check errors etc.\r\n</p>\r\n<p>\r\n</p><HR>\r\n<h2>Basic Syntax for using Functions in C++</h2>\r\n<p>Here is how you define a function in C++,</p>\r\n', '<pre class=\"cpp language-clike\"><code class=\" language-clike\"><span class=\"token keyword\">return</span><span class=\"token operator\">-</span>type <span class=\"token keyword\">function</span><span class=\"token operator\">-</span><span class=\"token function\">name</span><span class=\"token punctuation\">(</span>parameter1<span class=\"token punctuation\">,</span> parameter2<span class=\"token punctuation\">,</span> <span class=\"token punctuation\">.</span><span class=\"token punctuation\">.</span><span class=\"token punctuation\">.</span><span class=\"token punctuation\">)</span>\r\n<span class=\"token punctuation\">{</span>\r\n    <span class=\"token comment\">// function-body</span>\r\n<span class=\"token punctuation\">}</span></code></pre>', '<li><b>return-type: </b>suggests what the function will return. It can be int, char, some pointer or even a class object. There can be functions which does not return anything, they are mentioned with <b>void</b>.</li><li><b>Function Name:</b> is the name of the function, using the function name it is called.<br>\r\n<b>Parameters: </b>are variables to hold values of arguments passed while function is called. A function may or may not contain parameter list.</li>\r\n', NULL, NULL, '<pre class=\"cpp language-clike\"><code class=\" language-clike\"><span class=\"token comment\">// function for adding two values</span>\r\nvoid <span class=\"token function\">sum</span><span class=\"token punctuation\">(</span>int x<span class=\"token punctuation\">,</span> int y<span class=\"token punctuation\">)</span>\r\n<span class=\"token punctuation\">{</span>\r\n    int z<span class=\"token punctuation\">;</span>\r\n    z <span class=\"token operator\">=</span> x <span class=\"token operator\">+</span> y<span class=\"token punctuation\">;</span>\r\n    cout <span class=\"token operator\">&lt;</span><span class=\"token operator\">&lt;</span> z<span class=\"token punctuation\">;</span>\r\n<span class=\"token punctuation\">}</span>\r\n\r\nint <span class=\"token function\">main</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span>\r\n<span class=\"token punctuation\">{</span>\r\n    int a <span class=\"token operator\">=</span> <span class=\"token number\">10</span><span class=\"token punctuation\">;</span>\r\n    int b <span class=\"token operator\">=</span> <span class=\"token number\">20</span><span class=\"token punctuation\">;</span>\r\n    <span class=\"token comment\">// calling the function with name \'sum\'</span>\r\n    <span class=\"token function\">sum</span> <span class=\"token punctuation\">(</span>a<span class=\"token punctuation\">,</span> b<span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\r\n<span class=\"token punctuation\">}</span></code></pre>', 'Here, a and b are two variables which are sent as arguments to the function sum, and x and y are parameters which will hold values of a and b to perform the required operation inside the function.<BR>', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (18, 'Calling a Function', '<p>Functions are called by their names. If the function is without argument, it can be called directly using its name. But for functions with arguments, we have two ways to call them,</p>\r\n<ol class=\"content\">\r\n<li>Call by Value</li>\r\n<li>Call by Reference</li>\r\n</ol>', '<h3>Call by Value</h3>\r\n<p>In this calling technique we pass the values of arguments which are stored or copied into the formal parameters of functions. Hence, the original values are unchanged only the parameters inside function changes. </p>\r\n<pre class=\"cpp language-clike\"><code class=\" language-clike\">void <span class=\"token function\">calc</span><span class=\"token punctuation\">(</span>int x<span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\r\n\r\nint <span class=\"token function\">main</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span>\r\n<span class=\"token punctuation\">{</span>\r\n    int x <span class=\"token operator\">=</span> <span class=\"token number\">10</span><span class=\"token punctuation\">;</span>\r\n    <span class=\"token function\">calc</span><span class=\"token punctuation\">(</span>x<span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\r\n    <span class=\"token function\">printf</span><span class=\"token punctuation\">(</span><span class=\"token string\">\"%d\"</span><span class=\"token punctuation\">,</span> x<span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\r\n<span class=\"token punctuation\">}</span>\r\n\r\nvoid <span class=\"token function\">calc</span><span class=\"token punctuation\">(</span>int x<span class=\"token punctuation\">)</span>\r\n<span class=\"token punctuation\">{</span>\r\n    x <span class=\"token operator\">=</span> x <span class=\"token operator\">+</span> <span class=\"token number\">10</span> <span class=\"token punctuation\">;</span>\r\n<span class=\"token punctuation\">}</span>\r\n</code></pre><p class=\"output\">\r\n10\r\n</p>', '<p>In this case the actual variable <code>x</code> is not changed, because we pass argument by value, hence a copy of x is passed, which is changed, and that copied value is destroyed as the function ends(goes out of scope). So the variable <b>x</b> inside main() still has a value 10.</p><p>But we can change this program to modify the original <b>x</b>, by making the function <b>calc()</b> return a value, and storing that value in x.</p>\r\n<pre class=\"cpp language-clike\"><code class=\" language-clike\">int <span class=\"token function\">calc</span><span class=\"token punctuation\">(</span>int x<span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\r\n\r\nint <span class=\"token function\">main</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span>\r\n<span class=\"token punctuation\">{</span>\r\n    int x <span class=\"token operator\">=</span> <span class=\"token number\">10</span><span class=\"token punctuation\">;</span>\r\n    x <span class=\"token operator\">=</span> <span class=\"token function\">calc</span><span class=\"token punctuation\">(</span>x<span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\r\n    <span class=\"token function\">printf</span><span class=\"token punctuation\">(</span><span class=\"token string\">\"%d\"</span><span class=\"token punctuation\">,</span> x<span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\r\n<span class=\"token punctuation\">}</span>\r\n\r\nint <span class=\"token function\">calc</span><span class=\"token punctuation\">(</span>int x<span class=\"token punctuation\">)</span>\r\n<span class=\"token punctuation\">{</span>\r\n    x <span class=\"token operator\">=</span> x <span class=\"token operator\">+</span> <span class=\"token number\">10</span> <span class=\"token punctuation\">;</span>\r\n    <span class=\"token keyword\">return</span> x<span class=\"token punctuation\">;</span>\r\n<span class=\"token punctuation\">}</span>\r\n</code></pre><p class=\"output\">\r\n20\r\n</p>', '<h3>Call by Reference</h3>\r\n<p>In this we pass the address of the variable as arguments. In this case the formal parameter can be taken as a reference or a pointer, in both the case they will change the values of the original variable. </p><pre class=\"cpp language-clike\"><code class=\" language-clike\">void <span class=\"token function\">calc</span><span class=\"token punctuation\">(</span>int <span class=\"token operator\">*</span>p<span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\r\n\r\nint <span class=\"token function\">main</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span>\r\n<span class=\"token punctuation\">{</span>\r\n    int x <span class=\"token operator\">=</span> <span class=\"token number\">10</span><span class=\"token punctuation\">;</span>\r\n    <span class=\"token function\">calc</span><span class=\"token punctuation\">(</span><span class=\"token operator\">&amp;</span>x<span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>     <span class=\"token comment\">// passing address of x as argument</span>\r\n    <span class=\"token function\">printf</span><span class=\"token punctuation\">(</span><span class=\"token string\">\"%d\"</span><span class=\"token punctuation\">,</span> x<span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\r\n<span class=\"token punctuation\">}</span>\r\n\r\nvoid <span class=\"token function\">calc</span><span class=\"token punctuation\">(</span>int <span class=\"token operator\">*</span>p<span class=\"token punctuation\">)</span>\r\n<span class=\"token punctuation\">{</span>\r\n    <span class=\"token operator\">*</span>p <span class=\"token operator\">=</span> <span class=\"token operator\">*</span>p <span class=\"token operator\">+</span> <span class=\"token number\">10</span><span class=\"token punctuation\">;</span>\r\n<span class=\"token punctuation\">}</span>\r\n</code></pre>\r\n<p class=\"output\">\r\n20\r\n</p>', '<p><b>NOTE:</b> If you do not have a prior knowledge of pointers, do study pointers first.</p>', NULL, NULL, NULL, NULL, NULL, 'callbyvalue callbyreference', NULL, NULL, NULL),
-(19, 'Introduction to C++ Classes and Objects\r\n', '<p>The classes are the most important feature of C++ that leads to Object Oriented programming. Class is a user defined data type, which holds its own data members and member functions, which can be accessed and used by creating instance of that class.\r\n</p>\r\n<p>The variables inside class definition are called as data members and the functions are called member functions.\r\n</p>\r\n<p><b>For example:</b> Class of birds, all birds can fly and they all have wings and beaks. So here flying is a behavior and wings and beaks are part of their characteristics. And there are many different birds in this class with different names but they all posses this behavior and characteristics.</p>\r\n<p>Similarly, class is just a blue print, which declares and defines characteristics and behavior, namely data members and member functions respectively. And all objects of this class will share these characteristics and behavior.\r\n</p>\r\n<HR>\r\n<HR>\r\n\r\n<h2>More about Classes</h2>\r\n<ol class=\"content\">\r\n<li>Class name must start with an uppercase letter(Although this is not mandatory). If class name is made of more than one word, then first letter of each word must be in uppercase. <i>Example</i>,\r\n<pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">Study</span><span class=\"token punctuation\">,</span> class <span class=\"token class-name\">StudyTonight</span> etc</code></pre>\r\n</li>\r\n<li>Classes contain, data members and member functions, and the access of these data members and variable depends on the access specifiers (discussed in next section).\r\n</li>\r\n<li>Class\'s member functions can be defined inside the class definition or outside the class definition.\r\n</li>\r\n<li>Class in C++ are similar to structures in C, the only difference being, class defaults to private access control, where as structure defaults to public.\r\n</li>\r\n<li>All the features of OOPS, revolve around classes in C++. Inheritance, Encapsulation, Abstraction etc.\r\n</li>\r\n<li>Objects of class holds separate copies of data members. We can create as many objects of a class as we need.\r\n</li>\r\n<li>Classes do posses more characteristics, like we can create abstract classes, immutable classes, all this we will study later. </li>\r\n</ol>', '\r\n', '<HR><HR>\r\n<h2>Objects of Classes</h2>\r\n<p>Class is mere a blueprint or a template. No storage is assigned when we define a class. Objects are instances of class, which holds the data variables declared in class and the member functions work on these class objects. </p>\r\n<p>Each object has different data variables. Objects are initialised using special class functions called <b>Constructors</b>. We will study about constructors later.</p>\r\n<p>And whenever the object is out of its scope, another special class member function called <b>Destructor</b> is called, to release the memory reserved by the object. C++ doesn\'t have Automatic Garbage Collector like in JAVA, in C++ Destructor performs this task.</p>', NULL, NULL, '<pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">Abc</span>\r\n<span class=\"token punctuation\">{</span>\r\n    int x<span class=\"token punctuation\">;</span>\r\n    void <span class=\"token function\">display</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span>\r\n    <span class=\"token punctuation\">{</span>\r\n        <span class=\"token comment\">// some statement</span>\r\n    <span class=\"token punctuation\">}</span> \r\n<span class=\"token punctuation\">}</span><span class=\"token punctuation\">;</span>  \r\n\r\nint <span class=\"token function\">main</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span>\r\n<span class=\"token punctuation\">{</span>\r\n    Abc obj<span class=\"token punctuation\">;</span>   <span class=\"token comment\">// Object of class Abc created</span>\r\n<span class=\"token punctuation\">}</span></code></pre>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(20, 'Access Control in C++', '<p>Now before studying how to define class and its objects, lets first quickly learn what are access modifiers.\r\n</p><p>Now before studying how to define class and its objects, lets first quickly learn what are access modifiers.\r\n</p><ol class=\"content\">\r\n<li>public</li>\r\n<li>private</li>\r\n<li>protected</li>\r\n</ol><p>These access modifiers are used to set boundaries for availability of members of class be it data members or member functions</p><p>Access modifiers in the program, are followed by a colon. You can use either one, two or all 3 modifiers in the same class to set different boundaries for different class members. They change the boundary for all the declarations that follow them.\r\n</p>', '<h2>Public Access Modifier in C++</h2><p>Public, means all the class members declared under <b>public</b> will be available to everyone. The data members and member functions declared public can be accessed by other classes too. Hence there are chances that they might change them. So the key members must not be declared public.\r\n<strong></p><pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">PublicAccess</span>\r\n<span class=\"token punctuation\">{</span>\r\n    <span class=\"token comment\">// public access modifier</span>\r\n    public<span class=\"token punctuation\">:</span>   \r\n    int x<span class=\"token punctuation\">;</span>            <span class=\"token comment\">// Data Member Declaration </span>\r\n    void <span class=\"token function\">display</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>   <span class=\"token comment\">// Member Function decaration</span>\r\n<span class=\"token punctuation\">}</span></code></pre></strong>\r\n<HR><HR>\r\n<h2>Private Access Modifier in C++</h2>\r\n<p>Private keyword, means that no one can access the class members declared <b>private</b>, outside that class. If someone tries to access the private members of a class, they will get a <b>compile time error</b>. By default class variables and member functions are private.\r\n<strong></p><pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">PrivateAccess</span>\r\n<span class=\"token punctuation\">{</span>\r\n    <span class=\"token comment\">// private access modifier</span>\r\n    private<span class=\"token punctuation\">:</span>   \r\n    int x<span class=\"token punctuation\">;</span>            <span class=\"token comment\">// Data Member Declaration </span>\r\n    void <span class=\"token function\">display</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>   <span class=\"token comment\">// Member Function decaration</span>\r\n<span class=\"token punctuation\">}</span>\r\n</code></pre></strong>\r\n<HR><HR>\r\n<h2>Protected Access Modifier in C++\r\n<p>Protected, is the last access specifier, and it is similar to private, it makes class member inaccessible outside the class. But they can be accessed by any subclass of that class. (If class A is <b>inherited</b> by class B, then class B is subclass of class A. We will learn about inheritance later.)\r\n</p>\r\n<strong><pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">ProtectedAccess</span>\r\n<span class=\"token punctuation\">{</span>\r\n    <span class=\"token comment\">// protected access modifier</span>\r\n    protected<span class=\"token punctuation\">:</span> \r\n    int x<span class=\"token punctuation\">;</span>            <span class=\"token comment\">// Data Member Declaration </span>\r\n    void <span class=\"token function\">display</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>   <span class=\"token comment\">// Member Function decaration</span>\r\n<span class=\"token punctuation\">}</span>\r\n</code></pre>\r\n</h2></strong>\r\n<HR>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(21, 'Defining Class and Creating Objects', '<p>When we define any class, we are not defining any data, we just define a structure or a blueprint, as to what the object of that class type will contain and what operations can be performed on that object.\r\n', '</p><p>Below is the syntax of class definition,\r\n</p>\r\n<pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">ClassName</span>\r\n<span class=\"token punctuation\">{</span>\r\n    Access specifier<span class=\"token punctuation\">:</span> \r\n    Data members<span class=\"token punctuation\">;</span>\r\n    Member <span class=\"token function\">Functions</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span>\r\n    <span class=\"token punctuation\">{</span>\r\n        <span class=\"token comment\">// member function defintion</span>\r\n    <span class=\"token punctuation\">}</span>\r\n<span class=\"token punctuation\">}</span><span class=\"token punctuation\">;</span>\r\n</code></pre>', NULL, NULL, NULL, '<p>Here is an example, we have made a simple class named Student with appropriate members,</p><pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">Student</span>\r\n<span class=\"token punctuation\">{</span>\r\n    public<span class=\"token punctuation\">:</span>\r\n    int rollno<span class=\"token punctuation\">;</span>\r\n    string name<span class=\"token punctuation\">;</span>\r\n<span class=\"token punctuation\">}</span><span class=\"token punctuation\">;</span></code></pre>', '<p>So its clear from the syntax and example, class definition starts with the keyword \"class\" followed by the class name. Then inside the curly braces comes the class body, that is data members and member functions, whose access is bounded by access specifier. A class definition ends with a semicolon, or with a list of object declarations.\r\n</p>', '<pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">Student</span>\r\n<span class=\"token punctuation\">{</span>\r\n    public<span class=\"token punctuation\">:</span>\r\n    int rollno<span class=\"token punctuation\">;</span>\r\n    string name<span class=\"token punctuation\">;</span>\r\n<span class=\"token punctuation\">}</span>A<span class=\"token punctuation\">,</span>B<span class=\"token punctuation\">;</span></code></pre>', '<pre class=\"cpp language-clike\"><code class=\" language-clike\">int <span class=\"token function\">main</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span>\r\n<span class=\"token punctuation\">{</span>\r\n    <span class=\"token comment\">// creating object of class Student</span>\r\n    Student A<span class=\"token punctuation\">;</span>\r\n    Student B<span class=\"token punctuation\">;</span>\r\n<span class=\"token punctuation\">}</span></code></pre>', NULL, NULL, NULL, NULL, NULL),
+(19, 'Introduction to C++ Classes and Objects\r\n', '<p>The classes are the most important feature of C++ that leads to Object Oriented programming. Class is a user defined data type, which holds its own data members and member functions, which can be accessed and used by creating instance of that class.\r\n</p>\r\n<p>The variables inside class definition are called as data members and the functions are called member functions.\r\n</p>\r\n<p><b>For example:</b> Class of birds, all birds can fly and they all have wings and beaks. So here flying is a behavior and wings and beaks are part of their characteristics. And there are many different birds in this class with different names but they all posses this behavior and characteristics.</p>\r\n<p>Similarly, class is just a blue print, which declares and defines characteristics and behavior, namely data members and member functions respectively. And all objects of this class will share these characteristics and behavior.\r\n</p>\r\n<HR>\r\n<HR>\r\n\r\n<h2>More about Classes</h2>\r\n<ol class=\"content\">\r\n<li>Class name must start with an uppercase letter(Although this is not mandatory). If class name is made of more than one word, then first letter of each word must be in uppercase. <i>Example</i>,\r\n<pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">Study</span><span class=\"token punctuation\">,</span> class <span class=\"token class-name\">StudyTonight</span> etc</code></pre>\r\n</li>\r\n<li>Classes contain, data members and member functions, and the access of these data members and variable depends on the access specifiers (discussed in next section).\r\n</li>\r\n<li>Class\'s member functions can be defined inside the class definition or outside the class definition.\r\n</li>\r\n<li>Class in C++ are similar to structures in C, the only difference being, class defaults to private access control, where as structure defaults to public.\r\n</li>\r\n<li>All the features of OOPS, revolve around classes in C++. Inheritance, Encapsulation, Abstraction etc.\r\n</li>\r\n<li>Objects of class holds separate copies of data members. We can create as many objects of a class as we need.\r\n</li>\r\n<li>Classes do posses more characteristics, like we can create abstract classes, immutable classes, all this we will study later. </li>\r\n</ol>', NULL, '<HR><HR>\r\n<h2>Objects of Classes</h2>\r\n<p>Class is mere a blueprint or a template. No storage is assigned when we define a class. Objects are instances of class, which holds the data variables declared in class and the member functions work on these class objects. </p>\r\n<p>Each object has different data variables. Objects are initialised using special class functions called <b>Constructors</b>. We will study about constructors later.</p>\r\n<p>And whenever the object is out of its scope, another special class member function called <b>Destructor</b> is called, to release the memory reserved by the object. C++ doesn\'t have Automatic Garbage Collector like in JAVA, in C++ Destructor performs this task.</p>', NULL, NULL, '<pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">Abc</span>\r\n<span class=\"token punctuation\">{</span>\r\n    int x<span class=\"token punctuation\">;</span>\r\n    void <span class=\"token function\">display</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span>\r\n    <span class=\"token punctuation\">{</span>\r\n        <span class=\"token comment\">// some statement</span>\r\n    <span class=\"token punctuation\">}</span> \r\n<span class=\"token punctuation\">}</span><span class=\"token punctuation\">;</span>  \r\n\r\nint <span class=\"token function\">main</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span>\r\n<span class=\"token punctuation\">{</span>\r\n    Abc obj<span class=\"token punctuation\">;</span>   <span class=\"token comment\">// Object of class Abc created</span>\r\n<span class=\"token punctuation\">}</span></code></pre>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(20, 'Access Control in C++', '<p>Now before studying how to define class and its objects, lets first quickly learn what are access modifiers.\r\n</p><p>Now before studying how to define class and its objects, lets first quickly learn what are access modifiers.\r\n</p><ol class=\"content\">\r\n<li>public</li>\r\n<li>private</li>\r\n<li>protected</li>\r\n</ol><p>These access modifiers are used to set boundaries for availability of members of class be it data members or member functions</p><p>Access modifiers in the program, are followed by a colon. You can use either one, two or all 3 modifiers in the same class to set different boundaries for different class members. They change the boundary for all the declarations that follow them.\r\n</p>', '<h2>Public Access Modifier in C++</h2><p>Public, means all the class members declared under <b>public</b> will be available to everyone. The data members and member functions declared public can be accessed by other classes too. Hence there are chances that they might change them. So the key members must not be declared public.\r\n<strong></p><pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">PublicAccess</span>\r\n<span class=\"token punctuation\">{</span>\r\n    <span class=\"token comment\">// public access modifier</span>\r\n    public<span class=\"token punctuation\">:</span>   \r\n    int x<span class=\"token punctuation\">;</span>            <span class=\"token comment\">// Data Member Declaration </span>\r\n    void <span class=\"token function\">display</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>   <span class=\"token comment\">// Member Function decaration</span>\r\n<span class=\"token punctuation\">}</span></code></pre></strong>\r\n<HR><HR>\r\n<h2>Private Access Modifier in C++</h2>\r\n<p>Private keyword, means that no one can access the class members declared <b>private</b>, outside that class. If someone tries to access the private members of a class, they will get a <b>compile time error</b>. By default class variables and member functions are private.\r\n<strong></p><pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">PrivateAccess</span>\r\n<span class=\"token punctuation\">{</span>\r\n    <span class=\"token comment\">// private access modifier</span>\r\n    private<span class=\"token punctuation\">:</span>   \r\n    int x<span class=\"token punctuation\">;</span>            <span class=\"token comment\">// Data Member Declaration </span>\r\n    void <span class=\"token function\">display</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>   <span class=\"token comment\">// Member Function decaration</span>\r\n<span class=\"token punctuation\">}</span>\r\n</code></pre></strong>\r\n<HR><HR>\r\n<h2>Protected Access Modifier in C++</h2>\r\n<p>Protected, is the last access specifier, and it is similar to private, it makes class member inaccessible outside the class. But they can be accessed by any subclass of that class. (If class A is <b>inherited</b> by class B, then class B is subclass of class A. We will learn about inheritance later.)\r\n</p>\r\n<strong><pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">ProtectedAccess</span>\r\n<span class=\"token punctuation\">{</span>\r\n    <span class=\"token comment\">// protected access modifier</span>\r\n    protected<span class=\"token punctuation\">:</span> \r\n    int x<span class=\"token punctuation\">;</span>            <span class=\"token comment\">// Data Member Declaration </span>\r\n    void <span class=\"token function\">display</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>   <span class=\"token comment\">// Member Function decaration</span>\r\n<span class=\"token punctuation\">}</span>\r\n</code></pre>\r\n</h2></strong>\r\n<HR>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(21, 'Defining Class and Creating Objects', '<p>When we define any class, we are not defining any data, we just define a structure or a blueprint, as to what the object of that class type will contain and what operations can be performed on that object.\r\n', '</p><p>Below is the syntax of class definition,\r\n</p>\r\n<pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">ClassName</span>\r\n<span class=\"token punctuation\">{</span>\r\n    Access specifier<span class=\"token punctuation\">:</span> \r\n    Data members<span class=\"token punctuation\">;</span>\r\n    Member <span class=\"token function\">Functions</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span>\r\n    <span class=\"token punctuation\">{</span>\r\n        <span class=\"token comment\">// member function defintion</span>\r\n    <span class=\"token punctuation\">}</span>\r\n<span class=\"token punctuation\">}</span><span class=\"token punctuation\">;</span>\r\n</code></pre>', NULL, NULL, NULL, '<p>Here is an example, we have made a simple class named Student with appropriate members,</p><pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">Student</span>\r\n<span class=\"token punctuation\">{</span>\r\n    public<span class=\"token punctuation\">:</span>\r\n    int rollno<span class=\"token punctuation\">;</span>\r\n    string name<span class=\"token punctuation\">;</span>\r\n<span class=\"token punctuation\">}</span><span class=\"token punctuation\">;</span></code></pre>', '<p>So its clear from the syntax and example, class definition starts with the keyword \"class\" followed by the class name. Then inside the curly braces comes the class body, that is data members and member functions, whose access is bounded by access specifier. A class definition ends with a semicolon, or with a list of object declarations.\r\n</p>', '<pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">Student</span>\r\n<span class=\"token punctuation\">{</span>\r\n    public<span class=\"token punctuation\">:</span>\r\n    int rollno<span class=\"token punctuation\">;</span>\r\n    string name<span class=\"token punctuation\">;</span>\r\n<span class=\"token punctuation\">}</span>A<span class=\"token punctuation\">,</span>B<span class=\"token punctuation\">;</span></code></pre>\r\n<pre class=\"cpp language-clike\"><code class=\" language-clike\">int <span class=\"token function\">main</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span>\r\n<span class=\"token punctuation\">{</span>\r\n    <span class=\"token comment\">// creating object of class Student</span>\r\n    Student A<span class=\"token punctuation\">;</span>\r\n    Student B<span class=\"token punctuation\">;</span>\r\n<span class=\"token punctuation\">}</span></code></pre>', '', NULL, NULL, NULL, NULL, NULL),
 (22, 'Accessing Data Members of Class in C++', '<p>Accessing a data member depends solely on the access control of that data member. If its public, then the data member can be easily accessed using the direct member access <code>(.)</code> operator with the object of that class.\r\n</p><p>If, the data member is defined as private or protected, then we cannot access the data variables directly. Then we will have to create special public member functions to access, use or initialize the private and protected data members. These member functions are also called <b>Accessors</b> and <b>Mutator</b> methods or <b>getter</b> and <b>setter</b> functions.\r\n</p>', '<h2>Accessing Public Data Members</h2><p>Following is an example to show you how to initialize and use the public data members using the dot (.) operator and the respective object of class.\r\n</p><pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">Student</span>\r\n<span class=\"token punctuation\">{</span>\r\n    public<span class=\"token punctuation\">:</span>\r\n    int rollno<span class=\"token punctuation\">;</span>\r\n    string name<span class=\"token punctuation\">;</span>\r\n<span class=\"token punctuation\">}</span><span class=\"token punctuation\">;</span>\r\n\r\nint <span class=\"token function\">main</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span>\r\n<span class=\"token punctuation\">{</span>\r\n    Student A<span class=\"token punctuation\">;</span>\r\n    Student B<span class=\"token punctuation\">;</span>\r\n    \r\n    <span class=\"token comment\">// setting values for A object</span>\r\n    A<span class=\"token punctuation\">.</span>rollno<span class=\"token operator\">=</span><span class=\"token number\">1</span><span class=\"token punctuation\">;</span>\r\n    A<span class=\"token punctuation\">.</span>name<span class=\"token operator\">=</span><span class=\"token string\">\"Adam\"</span><span class=\"token punctuation\">;</span>\r\n    \r\n    <span class=\"token comment\">// setting values for B object</span>\r\n    B<span class=\"token punctuation\">.</span>rollno<span class=\"token operator\">=</span><span class=\"token number\">2</span><span class=\"token punctuation\">;</span>\r\n    B<span class=\"token punctuation\">.</span>name<span class=\"token operator\">=</span><span class=\"token string\">\"Bella\"</span><span class=\"token punctuation\">;</span>\r\n\r\n    cout <span class=\"token operator\">&lt;</span><span class=\"token operator\">&lt;</span><span class=\"token string\">\"Name and Roll no of A is: \"</span><span class=\"token operator\">&lt;</span><span class=\"token operator\">&lt;</span> A<span class=\"token punctuation\">.</span>name <span class=\"token operator\">&lt;</span><span class=\"token operator\">&lt;</span> <span class=\"token string\">\"-\"</span> <span class=\"token operator\">&lt;</span><span class=\"token operator\">&lt;</span> A<span class=\"token punctuation\">.</span>rollno<span class=\"token punctuation\">;</span>\r\n    cout <span class=\"token operator\">&lt;</span><span class=\"token operator\">&lt;</span><span class=\"token string\">\"Name and Roll no of B is: \"</span><span class=\"token operator\">&lt;</span><span class=\"token operator\">&lt;</span> B<span class=\"token punctuation\">.</span>name <span class=\"token operator\">&lt;</span><span class=\"token operator\">&lt;</span> <span class=\"token string\">\"-\"</span> <span class=\"token operator\">&lt;</span><span class=\"token operator\">&lt;</span> B<span class=\"token punctuation\">.</span>rollno<span class=\"token punctuation\">;</span>\r\n<span class=\"token punctuation\">}</span>\r\n</code></pre><p class=\"output\">\r\nName and Roll no of A is: Adam-1\r\nName and Roll no of B is: Bella-2\r\n</p>', '<h3>Accessing Protected Data Members</h3><p>Protected data members, can be accessed directly using dot (.) operator inside the <b>subclass</b> of the current class, for non-subclass we will have to follow the steps same as to access private data member.\r\n</p>', '<h2>Accessing Private Data Members</h2><p>To access, use and initialize the private data member you need to create getter and setter functions, to get and set the value of the data member.\r\n</p><p>The setter function will set the value passed as argument to the private data member, and the getter function will return the value of the private data member to be used. Both getter and setter function must be defined public.\r\n</p><pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">Student</span>\r\n<span class=\"token punctuation\">{</span>\r\n    private<span class=\"token punctuation\">:</span>    <span class=\"token comment\">// private data member</span>\r\n    int rollno<span class=\"token punctuation\">;</span>\r\n\r\n    public<span class=\"token punctuation\">:</span>\r\n    <span class=\"token comment\">// public function to get value of rollno - getter</span>\r\n    int <span class=\"token function\">getRollno</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span>\r\n    <span class=\"token punctuation\">{</span>\r\n        <span class=\"token keyword\">return</span> rollno<span class=\"token punctuation\">;</span>\r\n    <span class=\"token punctuation\">}</span>\r\n    <span class=\"token comment\">// public function to set value for rollno - setter</span>\r\n    void <span class=\"token function\">setRollno</span><span class=\"token punctuation\">(</span>int i<span class=\"token punctuation\">)</span>\r\n    <span class=\"token punctuation\">{</span>\r\n        rollno<span class=\"token operator\">=</span>i<span class=\"token punctuation\">;</span>\r\n    <span class=\"token punctuation\">}</span>\r\n<span class=\"token punctuation\">}</span><span class=\"token punctuation\">;</span>\r\n\r\nint <span class=\"token function\">main</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span>\r\n<span class=\"token punctuation\">{</span>\r\n    Student A<span class=\"token punctuation\">;</span>\r\n    A<span class=\"token punctuation\">.</span>rollono<span class=\"token operator\">=</span><span class=\"token number\">1</span><span class=\"token punctuation\">;</span>  <span class=\"token comment\">//Compile time error</span>\r\n    cout<span class=\"token operator\">&lt;</span><span class=\"token operator\">&lt;</span> A<span class=\"token punctuation\">.</span>rollno<span class=\"token punctuation\">;</span> <span class=\"token comment\">//Compile time error</span>\r\n\r\n    A<span class=\"token punctuation\">.</span><span class=\"token function\">setRollno</span><span class=\"token punctuation\">(</span><span class=\"token number\">1</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>  <span class=\"token comment\">//Rollno initialized to 1</span>\r\n    cout<span class=\"token operator\">&lt;</span><span class=\"token operator\">&lt;</span> A<span class=\"token punctuation\">.</span><span class=\"token function\">getRollno</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span> <span class=\"token comment\">//Output will be 1</span>\r\n<span class=\"token punctuation\">}</span></code></pre>', '<p>So this is how we access and use the private data members of any class using the getter and setter methods. We will discuss this in more details later.\r\n</p>', NULL, NULL, NULL, NULL, NULL, 'datamember', NULL, NULL, NULL),
 (23, 'Member Functions of Classes in C++', '<p>Member functions are the functions, which have their declaration inside the class definition and works on the data members of the class. The definition of member functions can be inside or outside the definition of class.\r\n</p><p>If the member function is defined inside the class definition it can be defined directly, but if its defined outside the class, then we have to use the scope resolution <code>::</code> operator along with class name alng with function name.</p>\r\n', '<HR><pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">Cube</span>\r\n<span class=\"token punctuation\">{</span>\r\n    public<span class=\"token punctuation\">:</span>\r\n    int side<span class=\"token punctuation\">;</span>\r\n    <span class=\"token comment\">/*\r\n        Declaring function getVolume \r\n        with no argument and return type int.\r\n    */</span>\r\n    int <span class=\"token function\">getVolume</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>     \r\n<span class=\"token punctuation\">}</span><span class=\"token punctuation\">;</span>\r\n</code></pre>\r\n<HR><pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">Cube</span>\r\n<span class=\"token punctuation\">{</span>\r\n    public<span class=\"token punctuation\">:</span>\r\n    int side<span class=\"token punctuation\">;</span>\r\n    int <span class=\"token function\">getVolume</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span>\r\n    <span class=\"token punctuation\">{</span>\r\n        <span class=\"token keyword\">return</span> side<span class=\"token operator\">*</span>side<span class=\"token operator\">*</span>side<span class=\"token punctuation\">;</span>      <span class=\"token comment\">//returns volume of cube</span>\r\n    <span class=\"token punctuation\">}</span>\r\n<span class=\"token punctuation\">}</span><span class=\"token punctuation\">;</span></code></pre>', '<p>But if we plan to define the member function outside the class definition then we must declare the function inside class definition and then define it outside.\r\n</p>', '<hr>\r\n<hr>\r\n<h2>Calling Class Member Function in C++</h2><p>Similar to accessing a data member in the class, we can also access the public member functions through the class object using the dot operator <code>(.)</code>.</p><p>Below we have a simple code example, where we are creating an object of the class <code>Cube</code> and calling the member function <code>getVolume()</code>:</p><pre class=\"cpp language-clike\"><code class=\" language-clike\">int <span class=\"token function\">main</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span>\r\n<span class=\"token punctuation\">{</span>\r\n    Cube C1<span class=\"token punctuation\">;</span>\r\n    C1<span class=\"token punctuation\">.</span>side <span class=\"token operator\">=</span> <span class=\"token number\">4</span><span class=\"token punctuation\">;</span>    <span class=\"token comment\">// setting side value</span>\r\n    cout<span class=\"token operator\">&lt;</span><span class=\"token operator\">&lt;</span> <span class=\"token string\">\"Volume of cube C1 = \"</span><span class=\"token operator\">&lt;</span><span class=\"token operator\">&lt;</span> C1<span class=\"token punctuation\">.</span><span class=\"token function\">getVolume</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\r\n<span class=\"token punctuation\">}</span>\r\n</code></pre><p class=\"output\">\r\nVolume of cube C1 = 16\r\n</p>', '<p>Similarly we can define the getter and setter functions to access private data members, inside or outside the class definition.\r\n</p><hr><hr>', '<pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">Cube</span>\r\n<span class=\"token punctuation\">{</span>\r\n    public<span class=\"token punctuation\">:</span>\r\n    int side<span class=\"token punctuation\">;</span>\r\n    int <span class=\"token function\">getVolume</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\r\n<span class=\"token punctuation\">}</span>\r\n\r\n<span class=\"token comment\">// member function defined outside class definition</span>\r\nint Cube <span class=\"token punctuation\">:</span><span class=\"token punctuation\">:</span> <span class=\"token function\">getVolume</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span>\r\n<span class=\"token punctuation\">{</span>\r\n    <span class=\"token keyword\">return</span> side<span class=\"token operator\">*</span>side<span class=\"token operator\">*</span>side<span class=\"token punctuation\">;</span>\r\n<span class=\"token punctuation\">}</span></code></pre>', '<p>The main function for both the function definition will be same. Inside main() we will create object of class, and will call the member function using dot <code>.</code> operator.\r\n</p>', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (24, 'Types of Class Member Functions in C++', '<p>We already know what member functions are, what they do, how to define member function and how to call them using class objects. Now lets learn about some special member functions which can be defined in C++ classes. Following are the different types of Member functions:\r\n</p>', '<ol class=\"content\">\r\n<li>Simple functions</li>\r\n<li>Static functions</li>\r\n<li>Const functions</li>\r\n<li>Inline functions</li>\r\n<li>Friend functions</li>\r\n</ol>', '<h2>Simple Member functions in C++</h2><p>These are the basic member function, which dont have any special keyword like static etc as prefix. All the general member functions, which are of below given form, are termed as simple and basic member functions.\r\n</p><hr><hr>\r\n\r\n<h2>Static Member functions in C++</h2><p>Static is something that holds its position. Static is a keyword which can be used with data members as well as the member functions. We will discuss this in details later. As of now we will discuss its usage with member functions only.\r\n</p>\r\n<p>A function is made static by using <code>static</code> keyword with function name. These functions work for the class as whole rather than for a particular object of a class.\r\n</p><p>It can be called using the object and the direct member access <code>.</code> operator. But, its more typical to call a static member function by itself, using class name and scope resolution <code>::</code> operator.\r\n</p><p>\r\nThese functions cannot access ordinary data members and member functions, but only <code>static</code> data members and <code>static</code> member functions can be called inside them.\r\n</p>\r\n<hr><hr>\r\n\r\n<h2>Const Member functions in C++</h2><p>We will study <b>Const</b> keyword in detail later(<a href=\"/cpp/const-keyword.php\" target=\"_blank\">Const Keyword</a>), but as an introduction, Const keyword makes variables constant, that means once defined, there values can\'t be changed.\r\n</p><p>When used with member function, such member functions can never modify the object or its related data members.\r\n</p><hr><hr>\r\n<h2>Inline functions in C++</h2><p>All the member functions defined inside the class definition are by default declared as Inline. We will study Inline Functions in details in the next topic.</p>\r\n\r\n<hr><hr>\r\n\r\n<h2>Friend functions in C++</h2>\r\n<p>Friend functions are actually not class member function. Friend functions are made to give <b>private</b> access to non-class functions. You can declare a global function as friend, or a member function of other class as friend.\r\n</p><p>Hence, friend functions can access private data members by creating object of the class. Similarly we can also make function of some other class as friend, or we can also make an entire class as <b>friend class</b>.</p>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Simple functions\r\nStatic functions\r\nConst functions\r\nInline functions\r\nFriend functions', NULL, NULL, NULL),
 (25, 'Inheritance in C++', '<p>Inheritance is the capability of one class to acquire properties and characteristics from another class. The class whose properties are inherited by other class is called the <b>Parent</b> or <b>Base</b> or <b>Super</b> class. And, the class which inherits properties of other class is called <b>Child</b> or <b>Derived</b> or <b>Sub</b> class.</p>\r\n<p>Inheritance makes the code reusable. When we inherit an existing class, all its methods and fields become available in the new class, hence code is reused.</p>\r\n<p><b>NOTE: </b> All members of a class except Private, are inherited</p>', '<h2>Purpose of Inheritance in C++</h2>\r\n<pre class=\"cpp language-clike\"><code class=\" language-clike\">\r\nclass <span class=\"token class-name\">Subclass_name</span> <span class=\"token punctuation\">:</span> access_mode Superclass_name\r\n</code></pre>', '<p>While defining a subclass like this, the super class must be already defined or atleast declared before the subclass declaration.</p>\r\n<p>Access Mode is used to specify, the mode in which the properties of superclass will be inherited into subclass, public, privtate or protected.</p>', '<h2>Table showing all the Visibility Modes</H2><table class=\"table table-bordered table-striped\">\r\n<thead>\r\n<tr><th></th><th>Derived Class</th><th>Derived Class</th><th>Derived Class</th></tr>\r\n<tr><th>Base class</th><th>Public Mode</th><th>Private Mode</th><th>Protected Mode</th></tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td>Private</td>\r\n<td>Not Inherited</td>\r\n<td>Not Inherited</td>\r\n<td>Not Inherited</td>\r\n</tr>\r\n<tr>\r\n<td>Protected</td>\r\n<td>Protected</td>\r\n<td>Private</td>\r\n<td>Protected</td>\r\n</tr>\r\n<tr>\r\n<td>Public</td>\r\n<td>Public</td>\r\n<td>Private</td>\r\n<td>Protected</td>\r\n</tr>\r\n</tbody>\r\n</table><HR>\r\n\r\n<H2>Access Modifiers and Inheritance: Visibility of Class Members</h2>\r\n<p>Depending on Access modifier used while inheritance, the availability of class members of Super class in the sub class changes. It can either be private, protected or public.</p>', '<h3>1) Public Inheritance</h3><p>This is the most used inheritance mode. In this the protected member of super class becomes protected members of sub class and public becomes public.</p>\r\n<U>SYNTAX</U>\r\n<H3><pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">Subclass</span> <span class=\"token punctuation\">:</span> public Superclass</code></pre></H3>\r\n<HR>\r\n<h3>2) Private Inheritance</h3>\r\n<p>In private mode, the protected and public members of super class become private members of derived class.</p>\r\n<U>SYNTAX</U>\r\n<strong><pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">Subclass</span> <span class=\"token punctuation\">:</span> Superclass   <span class=\"token comment\">// By default its private inheritance</span></code></pre></strong>\r\n<HR>\r\n<h3>3) Protected Inheritance</h3>\r\n<p>In protected mode, the public and protected members of Super class becomes protected members of Sub class.</p>\r\n<U>SYNTAX</U><strong>\r\n<pre class=\"cpp language-clike\"><code class=\" language-clike\">class <span class=\"token class-name\">subclass</span> <span class=\"token punctuation\">:</span> protected Superclass</code></pre>\r\n</strong>\r\n', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (26, 'Types of Inheritance in C++', '<p>In C++, we have 5 different types of Inheritance. Namely,</p>\r\n<ol class=\"content\">\r\n<li>Single Inheritance</li>\r\n<li>Multiple Inheritance</li>\r\n<li>Hierarchical Inheritance</li>\r\n<li>Multilevel Inheritance</li>\r\n<li>Hybrid Inheritance (also known as Virtual Inheritance)</li>\r\n</ol>', '<h2>Single Inheritance in C++</h2><p>In this type of inheritance one derived class inherits from only one base class. It is the most simplest form of Inheritance.</p>\r\n<BR><HR>\r\n\r\n<h2>Multiple Inheritance in C++</h2>\r\n<p>In this type of inheritance a single derived class may inherit from two or more than two base classes.</p><BR><HR>\r\n\r\n<h2>Hierarchical Inheritance in C++</h2>\r\n<p>In this type of inheritance, multiple derived classes inherits from a single base class.</p>\r\n\r\n<BR><HR>\r\n\r\n<h2>Multilevel Inheritance in C++</h2>\r\n<p>In this type of inheritance the derived class inherits from a class, which in turn inherits from some other class. The Super class for one, is sub class for the other.</p>\r\n\r\n<BR><HR>\r\n\r\n<h2>Hybrid (Virtual) Inheritance in C++</h2><p>Hybrid Inheritance is combination of Hierarchical and Mutilevel Inheritance.</p>\r\n\r\n<hr><hr>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cpp_quiz`
---
-
-CREATE TABLE `cpp_quiz` (
-  `id` int(2) NOT NULL,
-  `name` text NOT NULL,
-  `question` text NOT NULL,
-  `answer` text NOT NULL,
-  `choice1` text DEFAULT NULL,
-  `choice2` text DEFAULT NULL,
-  `choice3` text DEFAULT NULL,
-  `choice4` text DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -159,23 +142,6 @@ INSERT INTO `c_lang` (`id`, `indextopic`, `content`, `syntax`, `syntaxdef`, `syn
 -- --------------------------------------------------------
 
 --
--- Table structure for table `c_quiz`
---
-
-CREATE TABLE `c_quiz` (
-  `id` int(2) NOT NULL,
-  `name` text NOT NULL,
-  `question` text NOT NULL,
-  `answer` text NOT NULL,
-  `choice1` text DEFAULT NULL,
-  `choice2` text DEFAULT NULL,
-  `choice3` text DEFAULT NULL,
-  `choice4` text DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `java_lang`
 --
 
@@ -201,129 +167,25 @@ CREATE TABLE `java_lang` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `java_quiz`
---
-
-CREATE TABLE `java_quiz` (
-  `id` int(2) NOT NULL,
-  `name` text NOT NULL,
-  `question` text NOT NULL,
-  `answer` text NOT NULL,
-  `choice1` text DEFAULT NULL,
-  `choice2` text DEFAULT NULL,
-  `choice3` text DEFAULT NULL,
-  `choice4` text DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `prog_lang`
 --
 
 CREATE TABLE `prog_lang` (
   `id` int(2) NOT NULL,
   `name` text NOT NULL,
-  `table_lang` text NOT NULL,
-  `quiz_lang` text NOT NULL,
-  `referbook` text NOT NULL,
-  `referlink` text NOT NULL
+  `tablename` text NOT NULL,
+  `referbook` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `prog_lang`
 --
 
-INSERT INTO `prog_lang` (`id`, `name`, `table_lang`, `quiz_lang`, `referbook`, `referlink`) VALUES
-(1, 'C', 'c_lang', 'c_quiz', '', ''),
-(2, 'C++', 'cpp_lang', 'cpp_quiz', '', ''),
-(3, 'Java', 'java_lang', 'java_quiz', '', ''),
-(4, 'Python', 'python_lang', 'python_quiz', '', ''),
-(5, 'R', 'r_lang', 'r_quiz', '', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `python_lang`
---
-
-CREATE TABLE `python_lang` (
-  `id` int(2) NOT NULL,
-  `indextopic` text NOT NULL,
-  `content` text NOT NULL,
-  `syntax` text DEFAULT NULL,
-  `syntaxdef` text DEFAULT NULL,
-  `syntax2` text DEFAULT NULL,
-  `syntaxdef2` text DEFAULT NULL,
-  `example` text DEFAULT NULL,
-  `exampledef` text DEFAULT NULL,
-  `example2` text DEFAULT NULL,
-  `exampledef2` text DEFAULT NULL,
-  `searchword` text DEFAULT NULL,
-  `keyword` text DEFAULT NULL,
-  `diagram1` text DEFAULT NULL,
-  `diagram2` text DEFAULT NULL,
-  `diagram3` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `python_quiz`
---
-
-CREATE TABLE `python_quiz` (
-  `id` int(2) NOT NULL,
-  `name` text NOT NULL,
-  `question` text NOT NULL,
-  `answer` text NOT NULL,
-  `choice1` text DEFAULT NULL,
-  `choice2` text DEFAULT NULL,
-  `choice3` text DEFAULT NULL,
-  `choice4` text DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `r_lang`
---
-
-CREATE TABLE `r_lang` (
-  `id` int(2) NOT NULL,
-  `indextopic` text NOT NULL,
-  `content` text NOT NULL,
-  `syntax` text DEFAULT NULL,
-  `syntaxdef` text DEFAULT NULL,
-  `syntax2` text DEFAULT NULL,
-  `syntaxdef2` text DEFAULT NULL,
-  `example` text DEFAULT NULL,
-  `exampledef` text DEFAULT NULL,
-  `example2` text DEFAULT NULL,
-  `exampledef2` text DEFAULT NULL,
-  `searchword` text DEFAULT NULL,
-  `keyword` text DEFAULT NULL,
-  `diagram1` text DEFAULT NULL,
-  `diagram2` text DEFAULT NULL,
-  `diagram3` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `r_quiz`
---
-
-CREATE TABLE `r_quiz` (
-  `id` int(2) NOT NULL,
-  `name` text NOT NULL,
-  `question` text NOT NULL,
-  `answer` text NOT NULL,
-  `choice1` text DEFAULT NULL,
-  `choice2` text DEFAULT NULL,
-  `choice3` text DEFAULT NULL,
-  `choice4` text DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+INSERT INTO `prog_lang` (`id`, `name`, `tablename`, `referbook`) VALUES
+(1, 'C', 'c_lang', 'CNotesForProfessionals.pdf'),
+(2, 'C++', 'cpp_lang', 'CPlusPlusNotesForProfessionals.pdf'),
+(3, 'Java', 'java_lang', 'JavaNotesForProfessionals.pdf'),
+(4, 'Python', 'python_lang', 'PythonNotesForProfessionals.pdf');
 
 --
 -- Indexes for dumped tables
@@ -337,21 +199,9 @@ ALTER TABLE `cpp_lang`
   ADD UNIQUE KEY `id` (`id`);
 
 --
--- Indexes for table `cpp_quiz`
---
-ALTER TABLE `cpp_quiz`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `c_lang`
 --
 ALTER TABLE `c_lang`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `c_quiz`
---
-ALTER TABLE `c_quiz`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -361,39 +211,9 @@ ALTER TABLE `java_lang`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `java_quiz`
---
-ALTER TABLE `java_quiz`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `prog_lang`
 --
 ALTER TABLE `prog_lang`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `python_lang`
---
-ALTER TABLE `python_lang`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `python_quiz`
---
-ALTER TABLE `python_quiz`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `r_lang`
---
-ALTER TABLE `r_lang`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `r_quiz`
---
-ALTER TABLE `r_quiz`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -407,22 +227,10 @@ ALTER TABLE `cpp_lang`
   MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
--- AUTO_INCREMENT for table `cpp_quiz`
---
-ALTER TABLE `cpp_quiz`
-  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `c_lang`
 --
 ALTER TABLE `c_lang`
   MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
-
---
--- AUTO_INCREMENT for table `c_quiz`
---
-ALTER TABLE `c_quiz`
-  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `java_lang`
@@ -431,40 +239,10 @@ ALTER TABLE `java_lang`
   MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `java_quiz`
---
-ALTER TABLE `java_quiz`
-  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `prog_lang`
 --
 ALTER TABLE `prog_lang`
   MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `python_lang`
---
-ALTER TABLE `python_lang`
-  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `python_quiz`
---
-ALTER TABLE `python_quiz`
-  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `r_lang`
---
-ALTER TABLE `r_lang`
-  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `r_quiz`
---
-ALTER TABLE `r_quiz`
-  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
