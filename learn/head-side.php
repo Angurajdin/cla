@@ -187,10 +187,10 @@
             <i class="fas fa-code"></i> <span class="clearfix d-none d-sm-inline-block">Online Compiler</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="comp.php?lang=c_lang">C</a>
-            <a class="dropdown-item" href="comp.php?lang=cpp_lang">C++</a>
-            <a class="dropdown-item" href="comp.php?lang=java_lang">Java</a>
-            <a class="dropdown-item" href="comp.php?lang=python_lang">Python</a>
+            <a class="dropdown-item" href="../comp.php?lang=c_lang">C</a>
+            <a class="dropdown-item" href="../comp.php?lang=cpp_lang">C++</a>
+            <a class="dropdown-item" href="../comp.php?lang=java_lang">Java</a>
+            <a class="dropdown-item" href="../comp.php?lang=python_lang">Python</a>
           </div>
         </li>
                   
